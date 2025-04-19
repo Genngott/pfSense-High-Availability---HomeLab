@@ -2,8 +2,8 @@
 
 ## Opis projektu
 
-Projekt ten przedstawia konfigurację redundantnego środowiska sieciowego opartego na **pfSense** w trybie **High Availability (HA)**.  
-Celem było zapewnienie ciągłości dostępu do internetu w przypadku awarii głównego ISP poprzez konfigurację jednego ISP i implementację High Availability z wykorzystaniem **CARP** dla **VIP** (Virtual IP) oraz synchronizację konfiguracji i reguł firewalla między dwoma pfSense za pomocą **XML-RPC** i **pfsync**.
+Projekt ten przedstawia konfigurację redundantnego środowiska sieciowego opartego na **pfSense Community** w trybie **High Availability (HA)**.  
+Celem było zapewnienie ciągłości dostępu do internetu w przypadku awarii jednego firewalla poprzez konfigurację i implementację High Availability z wykorzystaniem **CARP** dla **VIP** (Virtual IP) oraz synchronizację konfiguracji i reguł firewalla między dwoma pfSense za pomocą **XML-RPC** i **pfsync**.
 
 ## Kluczowe cechy
 
@@ -92,10 +92,10 @@ Aby wdrożyć rozwiązanie High Availability w pfSense, wykonaj następujące kr
 ![KonfiguracjaCARP1](carpmasterislave.png)
 
 ![KonfiguracjaCARP2](carpmaster2.png)
-   - 1. Wspólny adres Virtual IP dla obu maszyn 
-   - 2. Hasło na obu maszynach takie samo - pełni rolę uwierzytelnienia maszyn
-   - 3. Numer grupy w której znajdują sią obie maszyny - również taki sam dla obu
-   - 4. Skew - określa która maszyna to MASTER a która SLAVE. Niższy numer=wyższy priorytet (czyli np 0=Master a 100=Slave)
+    1. Wspólny adres Virtual IP dla obu maszyn 
+    2. Hasło na obu maszynach takie samo - pełni rolę uwierzytelnienia maszyn
+    3. Numer grupy w której znajdują sią obie maszyny - również taki sam dla obu
+    4. Skew - określa która maszyna to MASTER a która SLAVE. Niższy numer=wyższy priorytet (czyli np 0=Master a 100=Slave)
 ![KonfiguracjaCARP2](carpslave3.png)    
    
 3. **Synchronizacja XML-RPC i pfsync:**

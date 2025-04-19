@@ -92,10 +92,10 @@ Aby wdrożyć rozwiązanie High Availability w pfSense, wykonaj następujące kr
 ![KonfiguracjaCARP1](carpmasterislave.png)
 
 ![KonfiguracjaCARP2](carpmaster2.png)
-    1. Wspólny adres Virtual IP dla obu maszyn 
-    2. Hasło na obu maszynach takie samo - pełni rolę uwierzytelnienia maszyn
-    3. Numer grupy w której znajdują sią obie maszyny - również taki sam dla obu
-    4. Skew - określa która maszyna to MASTER a która SLAVE. Niższy numer=wyższy priorytet (czyli np 0=Master a 100=Slave)
+   - pkt 1. Wspólny adres Virtual IP dla obu maszyn 
+   - pkt 2. Hasło na obu maszynach takie samo - pełni rolę uwierzytelnienia maszyn
+   - pkt 3. Numer grupy w której znajdują sią obie maszyny - również taki sam dla obu
+   - pkt 4. Skew - określa która maszyna to MASTER a która SLAVE. Niższy numer=wyższy priorytet (czyli np 0=Master a 100=Slave)
 ![KonfiguracjaCARP2](carpslave3.png)    
    
 3. **Synchronizacja XML-RPC i pfsync:**

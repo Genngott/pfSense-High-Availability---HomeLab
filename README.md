@@ -84,7 +84,7 @@ Aby wdrożyć rozwiązanie High Availability w pfSense, wykonaj następujące kr
    - Mam dwie maszyny, z których MASTER (PF1) działa na fizycznym sprzęcie i SLAVE-tudzież BACKUP (PF2) postawiony na Proxmox VE na mini PC  
    - Oba mają skonfigurowane interfejsy sieciowe WAN w tej samej podsieci (192.168.99.0/24) 
    
-![Dwa Wany](dwa wany.png)
+![Dwa Wany](dwawany.png)
 
 2. **Konfiguracja CARP:**
    - CARP (Common Address Redundancy Protocol) to odpowiednik protokołu CISCO VRRP

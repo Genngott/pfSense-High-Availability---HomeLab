@@ -15,7 +15,7 @@ Celem było zapewnienie ciągłości dostępu do internetu w przypadku awarii je
 
 Lab dotyczy zaznaczonej na czerwono części:
 
-![Schemat sieci](topologia.png)
+![Schemat sieci](topologia.jpg)
 
 ## Technologie i koncepcje
 
@@ -48,7 +48,7 @@ Lab dotyczy zaznaczonej na czerwono części:
 - 1x łącze ISP
 - Środowisko testowe: **Fizyczny Lab**
 
-![Fizyczny Lab](homelab.jpeg)
+![Fizyczny Lab](homelab.jpg)
 
 ### 2. Konfiguracja pfSense
 
@@ -84,19 +84,19 @@ Aby wdrożyć rozwiązanie High Availability w pfSense, wykonaj następujące kr
    - Mam dwie maszyny, z których MASTER (PF1) działa na fizycznym sprzęcie i SLAVE-tudzież BACKUP (PF2) postawiony na Proxmox VE na mini PC  
    - Oba mają skonfigurowane interfejsy sieciowe WAN w tej samej podsieci (192.168.99.0/24) 
    
-![Dwa Wany](dwawany.png)
+![Dwa Wany](dwawany.jpg)
 
 2. **Konfiguracja CARP:**
    - CARP (Common Address Redundancy Protocol) to odpowiednik protokołu CISCO VRRP
    - Na obu urządzeniach pfSense, konfigurujemy wspólny adres VIP dla interfejsów WAN, który będzie używany przez urządzenia w trybie HA. 
-![KonfiguracjaCARP1](carpmasterislave.png)
+![KonfiguracjaCARP1](carpmasterislave.jpg)
 
-![KonfiguracjaCARP2](carpmaster2.png)
+![KonfiguracjaCARP2](carpmaster2.jpg)
    - pkt 1. Wspólny adres Virtual IP dla obu maszyn 
    - pkt 2. Hasło na obu maszynach takie samo - pełni rolę uwierzytelnienia maszyn
    - pkt 3. Numer grupy w której znajdują sią obie maszyny - również taki sam dla obu
    - pkt 4. Skew - określa która maszyna to MASTER a która SLAVE. Niższy numer=wyższy priorytet (czyli np 0=Master a 100=Slave)
-![KonfiguracjaCARP2](carpslave3.png)    
+![KonfiguracjaCARP2](carpslave3.jpg)    
    
 3. **Synchronizacja XML-RPC i pfsync:**
 

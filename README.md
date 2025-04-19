@@ -15,7 +15,7 @@ Celem było zapewnienie ciągłości dostępu do internetu w przypadku awarii g�
 
 Lab dotyczy zaznaczonej na czerwono części:
 
-![Schemat sieci](topologia%202xpf.png)
+![Schemat sieci](topologia.png)
 
 ## Technologie i koncepcje
 

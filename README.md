@@ -28,7 +28,6 @@ Lab dotyczy zaznaczonej na czerwono części:
 - Virtual IP (VIP)
 - Proxmox (dla wirtualnej maszyny)
 - Fizyczny sprzęt (dla drugiego pfSense)
-- Git do wersjonowania konfiguracji
 
 ### Kluczowe pojęcia
 
@@ -45,8 +44,8 @@ Lab dotyczy zaznaczonej na czerwono części:
 - 2x urządzenia pfSense:
   - 1x na **Proxmox** (wirtualna maszyna)
   - 1x na **fizycznym sprzęcie**
-- 1x łącze ISP
-- Środowisko testowe: **Fizyczny Lab**
+- 1x łącze ISP (w kolejnym labie przewidziane drugi ISP jako połaczenie LTE)
+- Środowisko testowe: **Fizyczny Lab** 
 
 ![Fizyczny Lab](homelab.jpg)
 
@@ -54,19 +53,18 @@ Lab dotyczy zaznaczonej na czerwono części:
 
 **Na Masterze (fizyczny sprzęt):**
 
-- Ustawienie CARP VIP na interfejsie WAN
-- Włączenie synchronizacji XML-RPC Sync
-- Skonfigurowanie jednego ISP
+- Ustawiłem CARP VIP na interfejsie WAN
+- Włączyłem synchronizację XML-RPC Sync
 
 **Na Slave (wirtualna maszyna na Proxmoxie):**
 
-- Skonfigurowanie interfejsu synchronizacji
+- Skonfigurowaęłm interfejs synchronizacji
 - Aktywacja synchronizacji konfiguracji z Masterem
 
 ### 3. Testy
 
-- Po dodaniu i synchronizacji reguł oraz konfiguracji, przetestuj failover urządzeń i przełączenie ról firewalla.
-- Sprawdź w logach, czy synchronizacja działa poprawnie, a reguły są przekazywane na SLAVE.
+- Po dodaniu i synchronizacji reguł oraz konfiguracji, test failover urządzeń i przełączenie ról firewalla.
+- Sprawdzenie w logach, czy synchronizacja działa poprawnie i czy reguły są przekazywane na SLAVE.
 
 ## Co bym zrobił inaczej w produkcji?
 
@@ -78,8 +76,6 @@ Chociaż ten projekt sprawdza się w środowisku testowym, w produkcji warto zwr
 
 ### 4. Szczegóły konfiguracji i przebieg wdrożenia
 
-Aby wdrożyć rozwiązanie High Availability w pfSense, wykonaj następujące kroki:
-
 1. **Przygotowanie infrastruktury:**
    - Mam dwie maszyny, z których MASTER (PF1) działa na fizycznym sprzęcie i SLAVE-tudzież BACKUP (PF2) postawiony na Proxmox VE na mini PC  
    - Oba mają skonfigurowane interfejsy sieciowe WAN w tej samej podsieci (192.168.99.0/24) 
@@ -87,8 +83,8 @@ Aby wdrożyć rozwiązanie High Availability w pfSense, wykonaj następujące kr
 ![Dwa Wany](dwawany.jpg)
 
 2. **Konfiguracja CARP:**
-   - CARP (Common Address Redundancy Protocol) to odpowiednik protokołu CISCO VRRP
-   - Na obu urządzeniach pfSense, konfigurujemy wspólny adres VIP dla interfejsów WAN, który będzie używany przez urządzenia w trybie HA. 
+   - CARP (Common Address Redundancy Protocol) to odpowiednik protokołu CISCO VRRP czyli protokół któy odpowiada za jakby nie patrzeć redundancję ;)
+   - Na obu urządzeniach pfSense, skonfigurowałem wspólny adres VIP dla interfejsów WAN, który będzie używany przez urządzenia w trybie HA i ten adres wstrzykiwany jest przez DHCP do endpointów 
 ![KonfiguracjaCARP1](carpmasterislave.jpg)
 
 ![KonfiguracjaCARP2](carpmaster2.jpg)

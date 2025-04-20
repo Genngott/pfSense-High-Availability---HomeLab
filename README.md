@@ -21,13 +21,13 @@ Lab dotyczy zaznaczonej na czerwono części:
 
 ### Technologie
 
-- pfSense Community version
+- pfSense Community version 2.7.2-RELEASE (amd64)
 - CARP (Common Address Redundancy Protocol)
 - XML-RPC Synchronizacja
 - pfsync (Firewall Sync)
 - Virtual IP (VIP)
-- Proxmox (dla wirtualnej maszyny)
-- Fizyczny sprzęt (dla drugiego pfSense)
+- Proxmox VE (pfsense Backup)  
+- Fizyczny sprzęt (pfSense Master)  
 
 ### Kluczowe pojęcia
 
@@ -42,8 +42,8 @@ Lab dotyczy zaznaczonej na czerwono części:
 ### 1. Sprzęt
 
 - 2x urządzenia pfSense:
-  - 1x na **Proxmox** (wirtualna maszyna)
-  - 1x na **fizycznym sprzęcie**
+  - 1x na **Proxmox** postawiony na Mini PC T9Plus Intel N95 16/512 GB
+  - 1x na **fizycznym sprzęcie** użyłem Mini PC Intel Atom 4x LAN RS232 Model M4-J4125L4
 - 1x łącze ISP (w kolejnym labie przewidziane drugi ISP jako połaczenie LTE)
 - Środowisko testowe: **Fizyczny Lab** 
 

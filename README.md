@@ -37,9 +37,9 @@ Lab dotyczy zaznaczonej na czerwono części:
 - **pfsync** – synchronizacja stanu połączeń i reguł firewall w HA.
 - **XML-RPC Sync** – synchronizacja konfiguracji (np. reguł, aliasów) między masterem a slave'em.
 
-## Jak uruchomić?
+## Jak i na czym uruchomiłem...
 
-### 1. Wymagania
+### 1. Sprzęt
 
 - 2x urządzenia pfSense:
   - 1x na **Proxmox** (wirtualna maszyna)

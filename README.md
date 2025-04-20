@@ -77,13 +77,13 @@ Chociaż ten projekt sprawdza się w środowisku testowym, w produkcji warto zwr
 ### 4. Szczegóły konfiguracji i przebieg wdrożenia
 
 1. **Przygotowanie infrastruktury:**
-   - Mam dwie maszyny, z których MASTER (PF1) działa na fizycznym sprzęcie i SLAVE-tudzież BACKUP (PF2) postawiony na Proxmox VE na mini PC  
+   - Mam dwie maszyny, z których MASTER (pfsensefiz) działa na fizycznym sprzęcie i SLAVE-tudzież BACKUP (192.168.66.10) postawiony na Proxmox VE na mini PC  
    - Oba mają skonfigurowane interfejsy sieciowe WAN w tej samej podsieci (192.168.99.0/24) 
    
 ![Dwa Wany](dwawany.jpg)
 
 2. **Konfiguracja CARP:**
-   - CARP (Common Address Redundancy Protocol) to odpowiednik protokołu CISCO VRRP czyli protokół któy odpowiada za jakby nie patrzeć redundancję ;)
+   - CARP (Common Address Redundancy Protocol) to odpowiednik protokołu CISCO VRRP czyli protokół który odpowiada za jakby nie patrzeć redundancję ;)
    - Na obu urządzeniach pfSense, skonfigurowałem wspólny adres VIP dla interfejsów WAN, który będzie używany przez urządzenia w trybie HA i ten adres wstrzykiwany jest przez DHCP do endpointów 
 ![KonfiguracjaCARP1](carpmasterislave.jpg)
 
@@ -91,7 +91,7 @@ Chociaż ten projekt sprawdza się w środowisku testowym, w produkcji warto zwr
    - pkt 1. Wspólny adres Virtual IP dla obu maszyn 
    - pkt 2. Hasło na obu maszynach takie samo - pełni rolę uwierzytelnienia maszyn
    - pkt 3. Numer grupy w której znajdują sią obie maszyny - również taki sam dla obu
-   - pkt 4. Skew - określa która maszyna to MASTER a która SLAVE. Niższy numer=wyższy priorytet (czyli np 0=Master a 100=Slave)
+   - pkt 4. SKEW - określa która maszyna to MASTER a która SLAVE. Niższy numer=wyższy priorytet (czyli np 0=Master a 100=Slave)
 ![KonfiguracjaCARP2](carpslave3.jpg)    
    
 3. **Synchronizacja XML-RPC i pfsync:**

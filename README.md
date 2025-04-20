@@ -2,7 +2,7 @@
 
 ## Opis projektu
 
-Projekt ten przedstawia konfigurację redundantnego środowiska sieciowego opartego na **pfSense Community** w trybie **High Availability (HA)**.  
+Projekt przedstawia konfigurację redundantnego środowiska sieciowego opartego na **pfSense Community** w trybie **High Availability (HA)**.  
 Celem było zapewnienie ciągłości dostępu do internetu w przypadku awarii jednego firewalla poprzez konfigurację i implementację High Availability z wykorzystaniem **CARP** dla **VIP** (Virtual IP) oraz synchronizację konfiguracji i reguł firewalla między dwoma pfSense za pomocą **XML-RPC** i **pfsync**.
 
 ## Kluczowe cechy

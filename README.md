@@ -1,4 +1,4 @@
-# pfSense High Availability - HomeLab
+# pfSense High Availability 
 
 ## Opis projektu
 
